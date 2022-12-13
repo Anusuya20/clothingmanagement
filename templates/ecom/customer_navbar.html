@@ -17,7 +17,11 @@
   body {
       background-color: #ebe0e0
   }
-
+  .logo img{
+    height: 100px;
+    width: 145px;
+    padding-bottom: 30px;
+}
   #navbar {
       background-color: #000;
       color: black;
@@ -197,15 +201,15 @@
 </head>
 
   <body>
+  
     <div id="navbar">
         <div class="container">
-            <div class="row row1">
+           <div class="row row1">
                 <ul class="largenav pull-right">
-
-                    <li class="upper-links"><a class="links" href="/my-order">Orders</a></li>
-                    <li class="upper-links"><a class="links" href="/my-profile">Profile</a></li>
-                      <li class="upper-links"><a class="links" href="/logout">Logout</a></li>
-                    <li class="upper-links dropdown"><a class="links" href="">More</a>
+                    <li class="upper-links"><a class="links" href="/my-order" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">Orders</a></li>
+                    <li class="upper-links"><a class="links" href="/my-profile" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">Profile</a></li>
+                      <li class="upper-links"><a class="links" href="/logout" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">Logout</a></li>
+                    <li class="upper-links dropdown"><a class="links" href="/" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">More</a>
                         <ul class="dropdown-menu">
                           <li class="profile-li"><a class="profile-links" href="/send-feedback">Send Feedback</a></li>
                             <li class="profile-li"><a class="profile-links" href="/contactus">Contact Us</a></li>
@@ -214,11 +218,8 @@
                     </li>
                 </ul>
             </div>
-            <div class="row row2">
-                <div class="col-sm-2">
-                    <h2 style="margin:0px;"><a style="text-decoration:none; color:white;" href="/"><span class="largenav">Ecommerce </span></a></h2>
-                </div>
-
+            
+           
 
                 <div class="navbar-search smallsearch col-sm-8 col-xs-11">
                   <form  action="/search" method="get">
@@ -230,6 +231,12 @@
                       </button>
                     </div>
                   </form>
+                </div>
+                <div class="row row2">
+                    <div class="col-sm-2">
+                        div class="logo">
+                        <img src=" static/images/logo.png" /></div>
+                    </div>
                 </div>
 
                 <div class="cart1 largenav col-sm-2"> <a class="cart-button" href="/cart"> <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">

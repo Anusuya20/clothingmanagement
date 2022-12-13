@@ -1,11 +1,4 @@
-"""
 
-Developed By : sumit kumar
-facebook : fb.com/sumit.luv
-Youtube :youtube.com/lazycoders
-
-
-"""
 from django.contrib import admin
 from django.urls import path
 from ecom import views
@@ -20,6 +13,9 @@ urlpatterns = [
     path('search', views.search_view,name='search'),
     path('send-feedback', views.send_feedback_view,name='send-feedback'),
     path('view-feedback', views.view_feedback_view,name='view-feedback'),
+    path('customer-report', views.customer_report_view,name='customer-report'),
+    path('product-purchase-report', views.product_purchase_report_view,name='product-purchase-report'),
+    path('sales-report', views.sales_report_view,name='sales-report'),
 
     path('adminclick', views.adminclick_view),
     path('adminlogin', LoginView.as_view(template_name='ecom/adminlogin.html'),name='adminlogin'),
@@ -34,6 +30,11 @@ urlpatterns = [
     path('delete-product/<int:pk>', views.delete_product_view,name='delete-product'),
     path('update-product/<int:pk>', views.update_product_view,name='update-product'),
 
+    path('admin-suppliers', views.admin_suppliers_view,name='admin-suppliers'),
+    path('admin-add-suppliers', views.admin_add_suppliers_view,name='admin-add-suppliers'),
+    path('delete-supplier/<int:pk>', views.delete_supplier_view,name='delete-supplier'),
+    path('update-supplier/<int:pk>', views.update_supplier_view,name='update-supplier'),
+
     path('admin-view-booking', views.admin_view_booking_view,name='admin-view-booking'),
     path('delete-order/<int:pk>', views.delete_order_view,name='delete-order'),
     path('update-order/<int:pk>', views.update_order_view,name='update-order'),
@@ -46,6 +47,9 @@ urlpatterns = [
     path('my-profile', views.my_profile_view,name='my-profile'),
     path('edit-profile', views.edit_profile_view,name='edit-profile'),
     path('download-invoice/<int:orderID>/<int:productID>', views.download_invoice_view,name='download-invoice'),
+    path('download-cusrep', views.download_cusrep_view,name='download_cusrep.html'),
+
+
 
 
     path('add-to-cart/<int:pk>', views.add_to_cart_view,name='add-to-cart'),

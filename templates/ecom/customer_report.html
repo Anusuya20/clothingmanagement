@@ -13,33 +13,50 @@
       text-decoration: none;
     }
 
-    h6 {
-      text-align: center;
+.customertable p {
+      text-align: left;
+      margin-top: 20px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 30px;
+      margin-bottom: 20px;
     }
+.customertable button{
+  margin-left: 1350px;
+}
+    
+table, td, th {  
+  border: 3px solid black;
+  text-align: center;
+  margin-left: 350px;
+  height: 50px;
+}
 
-    .row {
-      margin: 100px;
-    }
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+
   </style>
 </head>
-<!--
-written By : sumit kumar
-facebook : fb.com/sumit.luv
--->
-<div class="panel">
-  <div class="panel bg-dark">
-    <div class="panel-heading">
-      <h6 class="panel-title" style="color: white;">Total Customer List</h6>
-    </div>
-    </div>
-    <table class="table table-hover" id="dev-table">
+<div class="customertable">
+      <p class="panel-title" style="color: black;">Customer Report</p>
+      <button>Download</button>
+</div>
+<form>
+  <label>From:</label>
+  <input type="date" >
+  <label>To:</label>
+  <input type="date" >
+ 
+</form>
+    <table>
       <thead>
         <tr>
           <th>Name</th>
           <th>Mobile</th>
           <th>Address</th>
-          <th>Update</th>
-          <th>Delete</th>
         </tr>
       </thead>
       {% for c in customers %}
@@ -47,13 +64,11 @@ facebook : fb.com/sumit.luv
         <td> {{c.get_name}}</td>
         <td>{{c.mobile}}</td>
         <td>{{c.address}}</td>
-        <td><a class="btn btn-primary btn-xs" href="{% url 'update-customer' c.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
-        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-customer' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+
 
       </tr>
       {% endfor %}
     </table>
-  </div>
-</div>
+
 
 {% endblock content %}

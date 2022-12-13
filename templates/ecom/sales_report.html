@@ -13,25 +13,45 @@
       text-decoration: none;
     }
 
-    h6 {
-      text-align: center;
+    .salestable p {
+      text-align: left;
+      margin-top: 20px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 30px;
+      margin-bottom: 20px;
     }
+.salestable button{
+  margin-left: 1350px;
+}
+    
+table, td, th {  
+  border: 3px solid black;
+  text-align: center;
+  margin-left: 350px;
+  height: 50px;
+}
 
-    .row {
-      margin: 100px;
-    }
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
   </style>
 </head>
-<!--
-written By : sumit kumar
-facebook : fb.com/sumit.luv
--->
-<div class="panel">
-  <div class="panel bg-dark">
-    <div class="panel-heading">
-      <h6 class="panel-title" style="color: white;">Total Orders</h6></div>
-    </div>
-    <table class="table table-hover" id="dev-table">
+
+<div class="salestable">
+  <p class="panel-title" style="color: black;">Sales Report</p>
+  <button>Download</button>
+</div>
+<form>
+<label>From:</label>
+<input type="date" >
+<label>To:</label>
+<input type="date" >
+
+</form>
+    <table>
       <thead>
         <tr>
           <th>Customer Name</th>
@@ -40,8 +60,7 @@ facebook : fb.com/sumit.luv
           <th>Product Name</th>
           <th>Product Picture</th>
           <th>Status</th>
-          <th>Update Status</th>
-          <th>Delete</th>
+          
         </tr>
       </thead>
       <!-- p for product, c for customer-->
@@ -57,8 +76,7 @@ facebook : fb.com/sumit.luv
         <td> {{p.name}}</td>
         <td> <img src="{% static p.product_image.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
         <td>{{order.status}}</td>
-        <td><a class="btn btn-primary btn-xs" href="{% url 'update-order' order.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
-        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-order' order.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+        
 
         {% endfor %}
 

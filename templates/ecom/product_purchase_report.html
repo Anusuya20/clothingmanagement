@@ -1,0 +1,83 @@
+{% extends 'ecom/admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .purchasetable p {
+      text-align: left;
+      margin-top: 20px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+.purchasetable button{
+  margin-left: 1350px;
+}
+    
+table, td, th {  
+  border: 3px solid black;
+  text-align: center;
+  margin-left: 350px;
+  height: 50px;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+    
+  </style>
+</head>
+
+
+<div class="purchasetable">
+  <p class="panel-title" style="color: black;">Purchase Report</p>
+  <button>Download</button>
+</div>
+<form>
+<label>From:</label>
+<input type="date" >
+<label>To:</label>
+<input type="date" >
+
+</form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      {% for p in products %}
+  {% if p %}
+
+      <tr>
+        <td> {{p.name}}</td>
+        <td> <img src="{% static p.product_image.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <td>{{p.price}}</td>
+        <td>{{p.description}}</td>
+
+      </tr>
+      {%else%}
+      <br><br><br>
+      <h1>no products</h1>
+      {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock content %}

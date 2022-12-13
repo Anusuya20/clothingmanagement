@@ -16,6 +16,7 @@
     .navbar-brand {
       font-size: 20px;
       font-family: sans-serif;
+      color: #ffffff;
 
     }
 
@@ -29,51 +30,52 @@
         }
 
 
-        #ftr {
-
-          padding: 20px;
-        }
-
-        .fa {
-
-          font-size: 23px;
-          width: 60px;
-          text-align: center;
-          text-decoration: none;
-          margin: 5px 2px;
-          border-radius: 50%;
-        }
-
-        .fa:hover {
-          opacity: 0.5;
-          text-decoration: none;
-        }
-
-        .fa-facebook {
-          background: #3B5998;
-          color: white;
-          margin-top: 30px;
-        }
-
-        .fa-whatsapp {
-          background: #25d366;
-          color: white;
-        }
-
-        .fa-twitter {
-          background: #55ACEE;
-          color: white;
-        }
-
-        .fa-instagram {
-          background: #125688;
-          color: white;
-        }
 
         p {
           text-align: center;
 
         }
+        .foo1{
+    float: left;
+}
+.footer1::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.footer1 h3{
+    color: white;
+    padding-left: 70px;
+    padding-top: 40px;
+}
+.footer1 p{
+    padding-left: 60px;
+    line-height: 10px;
+    color: white;
+    font-size: medium;
+}
+.footer1 i{
+      color:white;
+      font-size: 24px;
+}
+.footer1{
+    background: #337AB7;;
+    width:60%;
+    height: 300px;
+    display: inline-block;
+    margin-left: 300px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+.logo img{
+    height: 100px;
+    width: 145px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+
   </style>
 </head>
 
@@ -82,22 +84,27 @@
 
 
   <div class="bs-example">
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background:#337AB7;">
-      <a href="/" class="navbar-brand">Ecommerce</a>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background:black;">
+      <div class="logo">
+        <img src="{% static 'images/logo.png' %}" />
+    </div>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav">
-          <a href="/view-customer" class="nav-item nav-link">Customer</a>
-          <a href="/admin-view-booking" class="nav-item nav-link">Booking</a>
-          <a href="/admin-products" class="nav-item nav-link">Products</a>
-          <a href="/view-feedback" class="nav-item nav-link">Feedback</a>
+          <a href="/view-customer" class="nav-item nav-link" style="color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">Customer</a>
+          <a href="/admin-view-booking" class="nav-item nav-link" style="color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">Booking</a>
+          <a href="/admin-products" class="nav-item nav-link" style="color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:20px" >Products</a>
+          <a href="/view-feedback" class="nav-item nav-link" style="color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">Feedback</a>
+          <a href="/customer-report" class="nav-item nav-link" style="color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">Customer Report</a>
+          <a href="/product-purchase-report" class="nav-item nav-link" style="color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">Purchase Report</a>
+          <a href="/sales-report" class="nav-item nav-link" style="color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">Sales Report</a>
         </div>
 
         <div class="navbar-nav navbar-right">
-          <a href="/logout" class="nav-item nav-link">LOGOUT</a>
+          <a href="/logout" class="nav-item nav-link" style="color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;">LOGOUT</a>
         </div>
 
       </div>
@@ -111,12 +118,21 @@
   <!-- content end-->
 <br><br><br><br><br><br><br><br>
   <footer>
-    <p>
-      <a id="ftr" href="https://facebook.com/sumit.luv/" class="fa fa-facebook"></a>
-      <a id="ftr" href="https://api.whatsapp.com/send?phone=919572181024&text=Hello%20Sumit.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#" class="fa fa-whatsapp"></a>
-      <a id="ftr" href="https://instagram.com/sumit.luv" class="fa fa-instagram"></a>
-      <a id="ftr" href="https://twitter.com/sumitkumar1503" class="fa fa-twitter"></a>
-    </p>
+    <div class="footer1">
+      <div class="foo1">
+          <h3>Life Style Garments</h3>
+             <p><i class="fa">&#xf041;</i>  149/228, Opp. Taluk Office, Jawahar Bazar, Karur-1</p>
+             <p><i class="fa">&#xf095;</i>  +91 9600325484</p>
+             <p><i class="fa fa-envelope"></i>   lifestylegarments@gmail.com</p>
+         </div>         
+     <div class="foo1">
+         <h3>FOLLOW US</h3>
+         <p><i class="fa">&#xf230;</i>  Facebook</p>
+         <p><i class="fa">&#xf16d;</i>  Instagram</p>
+         <p><i class="fa">&#xf16a;</i>  You Tube</p>
+     </div>
+
+         </div>
 
     <br>
     <div class="container">
@@ -124,7 +140,7 @@
         <div class="col-md-12 col-sm-12">
           <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
             <p>Made in India <br>
-              Copyright &copy; 2020 LazyCoder </p>
+              Copyright &copy; 2022 Life Style Garments </p>
           </div>
         </div>
       </div>

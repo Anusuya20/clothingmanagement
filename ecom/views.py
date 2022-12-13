@@ -1,4 +1,6 @@
 from django.shortcuts import render,redirect,reverse
+
+from ecom.admin import SupplierAdmin
 from . import forms,models
 from django.http import HttpResponseRedirect,HttpResponse
 from django.core.mail import send_mail
@@ -92,7 +94,15 @@ def admin_dashboard_view(request):
 @login_required(login_url='adminlogin')
 def view_customer_view(request):
     customers=models.Customer.objects.all()
+    print(customers)
     return render(request,'ecom/view_customer.html',{'customers':customers})
+
+# admin view customer report table
+@login_required(login_url='adminlogin')
+def customer_report_view(request):
+    customers=models.Customer.objects.all()
+    print(customers)
+    return render(request,'ecom/customer_report.html',{'customers':customers})
 
 # admin delete customer
 @login_required(login_url='adminlogin')
@@ -128,6 +138,11 @@ def admin_products_view(request):
     products=models.Product.objects.all()
     return render(request,'ecom/admin_products.html',{'products':products})
 
+# admin view the purchase report
+@login_required(login_url='adminlogin')
+def product_purchase_report_view(request):
+    products=models.Product.objects.all()
+    return render(request,'ecom/product_purchase_report.html',{'products':products})
 
 # admin add product by clicking on floating button
 @login_required(login_url='adminlogin')
@@ -172,6 +187,18 @@ def admin_view_booking_view(request):
         ordered_bys.append(ordered_by)
     return render(request,'ecom/admin_view_booking.html',{'data':zip(ordered_products,ordered_bys,orders)})
 
+@login_required(login_url='adminlogin')
+def sales_report_view(request):
+    orders=models.Orders.objects.all()
+    ordered_products=[]
+    ordered_bys=[]
+    for order in orders:
+        ordered_product=models.Product.objects.all().filter(id=order.product.id)
+        ordered_by=models.Customer.objects.all().filter(id = order.customer.id)
+        ordered_products.append(ordered_product)
+        ordered_bys.append(ordered_by)
+    return render(request,'ecom/sales_report.html',{'data':zip(ordered_products,ordered_bys,orders)})
+
 
 @login_required(login_url='adminlogin')
 def delete_order_view(request,pk):
@@ -199,6 +226,43 @@ def view_feedback_view(request):
     return render(request,'ecom/view_feedback.html',{'feedbacks':feedbacks})
 
 
+
+# admin view the supplier
+@login_required(login_url='adminlogin')
+def admin_suppliers_view(request):
+    suppliers=models.Supplier.objects.all()
+    return render(request,'ecom/admin_suppliers.html',{'suppliers':suppliers})
+
+
+# admin add supplier by clicking on floating button
+@login_required(login_url='adminlogin')
+def admin_add_suppliers_view(request):
+    SupplierForm=forms.SupplierForm()
+    if request.method=='POST':
+        supplierForm=forms.SupplierForm(request.POST, request.FILES)
+        if supplierForm.is_valid():
+            supplierForm.save()
+        return HttpResponseRedirect('admin-suppliers')
+    return render(request,'ecom/admin_add_suppliers.html',{'supplierForm':supplierForm})
+
+#admin delete supplier
+@login_required(login_url='adminlogin')
+def delete_supplier_view(request,pk):
+    supplier=models.Supplier.objects.get(id=pk)
+    supplier.delete()
+    return redirect('admin-suppliers')
+
+#admin update supplier
+@login_required(login_url='adminlogin')
+def update_supplier_view(request,pk):
+    supplier=models.Supplier.objects.get(id=pk)
+    supplierForm=forms.SupplierForm(instance=supplier)
+    if request.method=='POST':
+        supplierForm=forms.SupplierForm(request.POST,request.FILES,instance=supplier)
+        if supplierForm.is_valid():
+            supplierForm.save()
+            return redirect('admin-supplier')
+    return render(request,'ecom/admin_update_supplier.html',{'supplierForm':supplierForm})
 
 #---------------------------------------------------------------------------------
 #------------------------ PUBLIC CUSTOMER RELATED VIEWS START ---------------------
@@ -489,6 +553,36 @@ def download_invoice_view(request,orderID,productID):
     }
     return render_to_pdf('ecom/download_invoice.html',mydict)
 
+
+def render_to_pdf(template_src, context_dict):
+    template = get_template(template_src)
+    html  = template.render(context_dict)
+    result = io.BytesIO()
+    pdf = pisa.pisaDocument(io.BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return
+
+@login_required(login_url='customerlogin')
+@user_passes_test(is_customer)
+def supplier_invoice_view(request,orderID,productID):
+    order=models.Orders.objects.get(id=orderID)
+    product=models.Product.objects.get(id=productID)
+    mydict={
+        'orderDate':order.order_date,
+        'customerName':request.user,
+        'customerEmail':order.email,
+        'customerMobile':order.mobile,
+        'shipmentAddress':order.address,
+        'orderStatus':order.status,
+
+        'productName':product.name,
+        'productPrice':product.price,
+        'productDescription':product.description,
+
+
+    }
+    return render_to_pdf('ecom/supplier_invoice.html',mydict)
 
 
 
