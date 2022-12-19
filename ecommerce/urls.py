@@ -47,7 +47,6 @@ urlpatterns = [
     path('my-profile', views.my_profile_view,name='my-profile'),
     path('edit-profile', views.edit_profile_view,name='edit-profile'),
     path('download-invoice/<int:orderID>/<int:productID>', views.download_invoice_view,name='download-invoice'),
-    path('download-cusrep', views.download_cusrep_view,name='download_cusrep.html'),
 
 
 

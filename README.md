@@ -1,15 +1,20 @@
 # ECOMMERCE
-![developer](https://img.shields.io/badge/Developed%20By%20%3A-Sumit%20Kumar-red)
+- Developer(https://github.com/Anusuya20)
+
 ---
 ## screenshots
+
 ### Admin Dashboard
-![dashboard snap](https://github.com/sumitkumar1503/ecommerce/blob/master/static/screenshots/adminHomepage.png?raw=true)
-### Customer Homepage
-![homepage snap](https://github.com/sumitkumar1503/ecommerce/blob/master/static/screenshots/customerhomepage.png?raw=true)
-### Cart
-![cart snap](https://github.com/sumitkumar1503/ecommerce/blob/master/static/screenshots/cart.png?raw=true)
+![admin dashboard](https://user-images.githubusercontent.com/89215124/208358384-a30c0b99-8d4e-49ac-8b7d-b04543612b72.png)
+### Admin View Clothes
+![viewclothes](https://user-images.githubusercontent.com/89215124/208362828-5ab4d9db-ef2a-4c34-ab53-c8be2dd00074.png)
+### Customer Home page
+![customerhome](https://user-images.githubusercontent.com/89215124/208361613-4edbfed0-3357-425e-9073-33ae3a236c12.png)
+### Cart 
+![cartpage](https://user-images.githubusercontent.com/89215124/208362220-4c3488f6-176e-4b60-9de2-8a92bb275be8.png)
 ### Track Orders
-![orders snap](https://github.com/sumitkumar1503/ecommerce/blob/master/static/screenshots/orderspage.png?raw=true)
+![vieworders](https://user-images.githubusercontent.com/89215124/208362449-ba6a5cbe-7e16-4ff1-a1ad-59d85b064355.png)
+
 ---
 ## FUNCTIONS
 ## Customer
@@ -67,28 +72,6 @@ py manage.py runserver
 http://127.0.0.1:8000/
 ```
 
-## CHANGES REQUIRED FOR CONTACT US PAGE
-- In settins.py file, You have to give your email and password
-```
-EMAIL_HOST_USER = 'youremail@gmail.com'
-EMAIL_HOST_PASSWORD = 'your email password'
-EMAIL_RECEIVING_USER = 'youremail@gmail.com'
-```
-- Login to gmail through host email id in your browser and open following link and turn it ON
-```
-https://myaccount.google.com/lesssecureapps
-```
-## Drawbacks/LoopHoles
-- When user edit their profile then he/she must login again because their username/password is updated in db.
-- Popup of product is added to cart is shown when click on Ecommerce logo (soon i will fix it)
 
-## Disclaimer
-This project is developed for demo purpose and it's not supposed to be used in real application.
 
-## Contributor
-- [Raxa](https://github.com/raxa217)
 
-## Feedback
-Any suggestion and feedback is welcome. You can message me on facebook
-- [Contact on Facebook](https://fb.com/sumit.luv)
-- [Subscribe my Channel LazyCoder On Youtube](https://youtube.com/lazycoders)
